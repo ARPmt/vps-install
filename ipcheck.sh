@@ -1,0 +1,1 @@
+bash <(curl -Ls https://IP.Check.Place) -4

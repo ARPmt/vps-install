@@ -1,0 +1,15 @@
+.:53 {
+        cache 120
+        reload 6s
+        log
+        errors
+        ready
+        loadbalance
+        prometheus :9153
+        forward . /etc/config/coredns_resolv.conf
+        hosts {
+                ttl 60
+                reload 1m
+                fallthrough
+        }
+}

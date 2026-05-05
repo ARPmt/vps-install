@@ -1,0 +1,38 @@
+# ── 防火墙 & SSH ──────────────────────────────────────────────
+# 是否启用 iptables 规则（true/false）
+ENABLE_IPTABLES=true
+# SSH 监听端口
+SSH_PORT=59999
+# 限制 SSH 只允许该 IP 访问（留空则不限制）
+ZERONEWS_SOURCE_IP=
+
+# ── WireGuard VPN ─────────────────────────────────────────────
+# 是否部署 WireGuard 配置（true/false）
+INSTALL_WIREGUARD_CONFIG=true
+# WireGuard 网卡名称
+WIREGUARD_INTERFACE=wg0
+# WireGuard 监听 UDP 端口
+WIREGUARD_PORT=60001
+# WireGuard 本机私钥
+WIREGUARD_PRIVATE_KEY=IJlPv94Ukm2GIyEMPjpBnr16sBmtf34zRa37rKlJZUc=
+# WireGuard 本机地址（CIDR）
+WIREGUARD_ADDRESS=10.21.0.1/30
+# 配置文件来源与目标路径
+WIREGUARD_CONFIG_SOURCE=$SCRIPT_DIR/wg0.conf
+WIREGUARD_CONFIG_TARGET=/etc/wireguard/wg0.conf
+# 是否开机自启（true/false）
+WIREGUARD_AUTOSTART=true
+
+# ── CoreDNS ───────────────────────────────────────────────────
+# 是否部署 CoreDNS（true/false）
+INSTALL_COREDNS=true
+# CoreDNS 二进制文件来源与目标路径
+COREDNS_BINARY_SOURCE=$SCRIPT_DIR/coredns
+COREDNS_BINARY_TARGET=/usr/bin/coredns
+# Corefile 来源路径
+COREDNS_COREFILE_SOURCE=$SCRIPT_DIR/Corefile
+# CoreDNS 配置目录及 Corefile 目标路径
+COREDNS_CONFIG_DIR=/etc/coredns
+COREDNS_COREFILE_TARGET=/etc/coredns/Corefile
+# systemd 服务名称
+COREDNS_SERVICE_NAME=coredns
