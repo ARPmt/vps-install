@@ -1,0 +1,26 @@
+    version: 2
+    ethernets:
+        eth0:
+            addresses:
+            - 185.229.222.199/25
+            - 185.229.222.80/25
+            - 89.125.70.104
+            - 89.125.70.37
+            - 89.125.70.53
+            - 89.125.70.99            
+            match:
+                macaddress: bc:24:11:54:09:4e
+            nameservers:
+                addresses:
+                - 8.8.8.8
+                - 8.8.4.4
+                - 8.8.8.8
+                - 8.8.4.4
+                search:
+                - domain.local
+            routes:
+            -   to: default
+                via: 185.229.222.254
+            -   to: default
+                via: 2605:e440:b::1337
+            set-name: eth0

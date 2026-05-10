@@ -52,7 +52,7 @@ add() {
 
   apply_port
   echo "生成 Sock5 代理端口号 $PORT"
-  WORK_DIR_NAME=${PX_IP}_${NET_ID}
+  WORK_DIR_NAME=${NET_ID}_${PX_IP}
   WORK_DIR_PATH="$HTTP_PROXY_DIR/$WORK_DIR_NAME"
 
   if [ -d "$WORK_DIR_PATH" ]; then
@@ -102,6 +102,7 @@ services:
     image: gogost/gost
     container_name: $DOCKER_NAME
     restart: always
+    mem_limit: 100m
     command: -L "http://${USER}:${PASS}@:8080"
     networks:
       $BR_NAME:
